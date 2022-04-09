@@ -6,6 +6,15 @@ let tlacitka = document.querySelectorAll('button');
 let audio = document.querySelector('#js-audio');
 let odstavec = document.querySelector('#js-paragraph')
 
+odstavec.addEventListener('mouseover', (event) => {
+    let p = event.target;
+    p.style.fontWeight = 'bold'
+});
+odstavec.addEventListener('mouseout', (event) => {
+    let p = event.target;
+    p.style.fontWeight = 'normal'
+});
+
 tlacitka.forEach((tlacitko) => {
     tlacitko.addEventListener('click', mojeFunkce)
 });
