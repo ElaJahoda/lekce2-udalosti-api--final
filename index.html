@@ -15,16 +15,16 @@
 		V elipse spí lev.
 	</p>
 	
-	<button onclick="prepniZcervenani('js-paragraph')">červené po kliknutí</button>
-	<button onclick="zvetsitPismo('#js-paragraph', 1);">větší po kliknutí</button>
+	<button>červené po kliknutí</button>
+	<button>větší po kliknutí</button>
 	
 	<h2>Audio ovladač</h2>
-	<button onclick="prehraj('#js-audio')">Prehraj</button>
-	<button onclick="pauzni('#js-audio')">Pauzni</button>
-	<button onclick="upravHlasitost('#js-audio', 0)">Ztišit</button>
-	<button onclick="upravHlasitost('#js-audio', 0.5)">Hlasitost tak akorát</button>
-	<button onclick="upravHlasitost('#js-audio', 1)">Hlasitost na maximum</button>
-	<button onclick="resetuj('#js-audio')">Nastav na začátek</button>
+	<button id="jedna">Přehraj</button>
+	<button>Pauzni</button>
+	<button data-volume="0">Ztišit</button>
+	<button data-volume="0.5">Hlasitost tak akorát</button>
+	<button data-volume="1">Hlasitost na maximum</button>
+	<button>Nastav na začátek</button>
 	
 	<audio id="js-audio" src="audio/dingdingdang.mp3" preload="auto"></audio>
 	

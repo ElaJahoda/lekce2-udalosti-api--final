@@ -1,39 +1,43 @@
-// tady je místo pro náš program
+/*-----------------*/
+/* FUNKCE TLAČÍTEK */
+/*-----------------*/
 
-/**
- * Funkce přidá nebo odebere na prvku třídu, která se stará o červenou barvu písma
- * 
- * @param {string} elementId 
- */
-function prepniZcervenani(elementId) {
-    document.getElementById(elementId).classList.toggle('cerveny-text');
+let tlacitka = document.querySelectorAll('button');
+let audio = document.querySelector('#js-audio');
+let odstavec = document.querySelector('#js-paragraph')
+
+tlacitka.forEach((tlacitko) => {
+    tlacitko.addEventListener('click', mojeFunkce)
+});
+
+function mojeFunkce(event) {
+    let tlacitko = event.target;
+    if(tlacitko.textContent == 'červené po kliknutí') {
+        odstavec.classList.toggle('cerveny-text')
+    }
+    if(tlacitko.textContent == 'větší po kliknutí') {
+        zvetsitPismo(odstavec, 1);
+    }
+    if (tlacitko.textContent == 'Přehraj') {
+    console.log('pojedu');
+    audio.play();
+    }
+    if (tlacitko.textContent == 'Pauzni') {
+        console.log('stop');
+        audio.pause();
+        }
+    if (tlacitko.dataset.volume) {
+        console.log('volume');
+        audio.volume = parseFloat(tlacitko.dataset.volume);
+        }
+    if (tlacitko.textContent == 'Nastav na začátek') {
+        console.log('znovu');
+        audio.currentTime = 0;
+        }
 }
 
-/**
- * Funkce zvětší/změnší písmo v elementu o definovanou velikost
- * 
- * @param {string} elementSelector 
- * @param {int} fontSizeChange 
- */
 function zvetsitPismo(elementSelector, fontSizeChange) {
-    let element = document.querySelector(elementSelector);
+    let element = elementSelector;
     let currentFontSize = parseInt(element.style.fontSize);
     element.style.fontSize = (currentFontSize + fontSizeChange) + 'px';
-}
-
-/*--------------*/
-/* AUDIO FUNKCE */
-/*--------------*/
-
-function prehraj(elementSelector) {
-    document.querySelector(elementSelector).play();
-}
-function pauzni(elementSelector) {
-    document.querySelector(elementSelector).pause();
-}
-function upravHlasitost(elementSelector, volumeValue) {
-    document.querySelector(elementSelector).volume = volumeValue;
-}
-function resetuj(elementSelector) {
-    document.querySelector(elementSelector).currentTime = 0;
 }
